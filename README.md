@@ -12,6 +12,13 @@ With this client you will be able to identify suspects transaction and ip addres
 composer require jeanguybillard/angunasuktuq-saas-client
 ```
 
+```
+cp .env.example {projectdirectory}
+```
+
+And contact https://www.linkedin.com/in/jean-guy-billard-6186001/ for a security key 
+
+
 # php sample code
 
 used for identifying hackers ips address
