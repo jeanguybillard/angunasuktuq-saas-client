@@ -1,14 +1,11 @@
-<?php 
+<?php
 
 /**
 *  Corresponding Class to test YourClass class
 *
-*  For each class in your library, there should be a corresponding Unit-Test for it
-*  Unit-Tests should be as much as possible independent from other test going on.
-*
-*  @author yourname
+*  @author jean-guy billard
 */
-class YourClassTest extends PHPUnit_Framework_TestCase{
+class AngunasuktuqTest extends PHPUnit_Framework_TestCase{
 	
   /**
   * Just check if the YourClass has no syntax error 
@@ -18,7 +15,7 @@ class YourClassTest extends PHPUnit_Framework_TestCase{
   *
   */
   public function testIsThereAnySyntaxError(){
-	$var = new Buonzz\Template\YourClass;
+	$var = new JeanGuyBillard\Angunasuktuq;
 	$this->assertTrue(is_object($var));
 	unset($var);
   }
@@ -30,9 +27,9 @@ class YourClassTest extends PHPUnit_Framework_TestCase{
   * any typo before you even use this library in a real project.
   *
   */
-  public function testMethod1(){
-	$var = new Buonzz\Template\YourClass;
-	$this->assertTrue($var->method1("hey") == 'Hello World');
+  public function testLoad(){
+	$var = new JeanGuyBillard\Angunasuktuq;
+	$this->assertTrue($var->load("hey") == 'Hello World');
 	unset($var);
   }
   
