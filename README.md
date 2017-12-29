@@ -6,6 +6,8 @@ To speed development of this project, please donate to
 
 Angunasuktuq Client for Hunting Hackers by finding fingerprints in Logs
 
+This service is base on white papers publish on blackhat.com; https://www.blackhat.com/docs/us-17/thursday/us-17-Prandl-PEIMA-Harnessing-Power-Laws-To-Detect-Malicious-Activities-From-Denial-Of-Service-To-Intrusion-Detection-Traffic-Analysis-And-Beyond-wp.pdf
+
 With this client you will be able to identify suspects transaction and ip addresses responsible for hacking servers or ecommerce. 
 
 # installation
@@ -16,13 +18,19 @@ composer require jeanguybillard/angunasuktuq-saas-client
 ```
 
 # setup
+
+Here is how to configure the Saas service 
+
+- step 1: get security key
+And contact https://www.linkedin.com/in/jean-guy-billard-6186001/ for a security key 
+
+- step 2: Set the secret key and the server address in .env file
 ``` sh
 cp .env.example {projectdirectory}/.env
 ```
-
-And contact https://www.linkedin.com/in/jean-guy-billard-6186001/ for a security key 
-
-Set the secret key and the server address in .env file
+``` sh
+vi {projectdirectory}/.env
+```
 
 ``` ini
 Angunasuktuq-saas-server-address = "127.0.0.1"
