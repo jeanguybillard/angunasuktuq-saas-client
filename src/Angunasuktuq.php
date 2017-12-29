@@ -18,16 +18,30 @@ class Angunasuktuq
     /** @var array $name */
     private $name = [];
 
+    /** @var array $mapping */
+    private $mapping = [
+        'customer-id' => 'customer-id',
+        'transaction-id' => 'transaction-id',
+        'date' => 'date',
+        'total' => 'total',
+    ];
+
     /**
      * Angunasuktuq constructor.
      *
      * @param $name
      */
-    public function __construct($name='default')
+    public function __construct($name = 'default')
     {
         $this->name = $name;
     }
 
+    /**
+     * @param $mapping
+     */
+    public function map($mapping){
+        $this->mapping = $mapping;
+    }
     /**
      * @param $envPath
      * @return array|false|string
@@ -49,14 +63,14 @@ class Angunasuktuq
     {
         //upload file
         $curl = new Curl();
-        $curl->post(getenv('Angunasuktuq-saas-server-address')."/data/$this->name/sync", array(
+        $curl->post(getenv('Angunasuktuq-saas-server-address') . "/data/$this->name/sync", array(
             'data' => "@$filePath",
+            'mapping' => $this->mapping,
         ));
 
         if ($curl->error) {
             throw new \Exception($curl->error_code);
-        }
-        else {
+        } else {
             $result = $curl->response;
         }
         return $result;
@@ -69,12 +83,11 @@ class Angunasuktuq
     public function getSuspects()
     {
         $curl = new Curl();
-        $curl->get(getenv('Angunasuktuq-saas-server-address')."/data/$this->name/suspects");
+        $curl->get(getenv('Angunasuktuq-saas-server-address') . "/data/$this->name/suspects");
 
         if ($curl->error) {
             throw new \Exception($curl->error_code);
-        }
-        else {
+        } else {
             $result = $curl->response;
         }
         return $result;
