@@ -1,14 +1,22 @@
-# angunasuktuq-saas-client
 
-To speed development of this project, please donate to 
+                                                   _    _               
+     /\                                           | |  | |              
+    /  \   _ __   __ _ _   _ _ __   __ _ ___ _   _| | _| |_ _   _  __ _ 
+   / /\ \ | '_ \ / _` | | | | '_ \ / _` / __| | | | |/ / __| | | |/ _` |
+  / ____ \| | | | (_| | |_| | | | | (_| \__ \ |_| |   <| |_| |_| | (_| |
+ /_/    \_\_| |_|\__, |\__,_|_| |_|\__,_|___/\__,_|_|\_\\__|\__,_|\__, |
+                  __/ |                                              | |
+                 |___/                                               |_|
+
+# angunasuktuq-saas-client
 
 # mission
 
-Angunasuktuq Client for Hunting Hackers by finding fingerprints in Logs
+Angunasuktuq Client for Hunting Hackers by finding fingerprints in Logs.
 
 This service is base on white papers publish on blackhat.com; https://www.blackhat.com/docs/us-17/thursday/us-17-Prandl-PEIMA-Harnessing-Power-Laws-To-Detect-Malicious-Activities-From-Denial-Of-Service-To-Intrusion-Detection-Traffic-Analysis-And-Beyond-wp.pdf
 
-With this client you will be able to identify suspects transaction and ip addresses responsible for hacking servers or ecommerce. 
+With this client you will be able to identify anomalies in your sales transactions and find ip addresses responsible for DDoS attacks.  
 
 # installation
 
