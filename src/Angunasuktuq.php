@@ -12,9 +12,6 @@ use Dotenv\Dotenv;
  */
 class Angunasuktuq
 {
-    /** @var array $config */
-    private $config = [];
-
     /** @var array $name */
     private $name = [];
 
@@ -79,7 +76,6 @@ class Angunasuktuq
     {
         $dotenv = new Dotenv($envPath);
         $dotenv->load();
-        $this->config = getenv('Angunasuktuq-saas-server-address');
         return $this->config;
     }
 
