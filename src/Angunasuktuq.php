@@ -3,17 +3,20 @@
 namespace JeanGuyBillard\Angunasuktuq;
 
 use Curl\Curl;
-use Dotenv\Dotenv;
 
 /**
  *  Angunasuktuq Saas Client
- **
+ *
  * @author Jean-Guy Billard
  */
 class Angunasuktuq
 {
-    /** @var array $name */
-    private $name = [];
+    /** @var array $options */
+    private $options = [
+        'saas-server-address' => null,
+        'account-id' => null,
+        'report-id' => 'default',
+    ];
 
     /** @var array $mapping */
     private $mapping = self::CUSTOM_COLUMN_MAPPING;
@@ -54,10 +57,9 @@ class Angunasuktuq
      *
      * @param $name
      */
-    public function __construct($name = 'default')
+    public function __construct($options = [])
     {
-        $this->name = $name;
-        $this->setConfiguration(__DIR__);
+        $this->options = $options;
     }
 
     /**
@@ -69,27 +71,20 @@ class Angunasuktuq
     }
 
     /**
-     * @param $envPath
-     * @return array|false|string
-     */
-    public function setConfiguration($envPath = __DIR__)
-    {
-        $dotenv = new Dotenv($envPath);
-        $dotenv->load();
-        return $this->config;
-    }
-
-    /**
      * @param $filePath
      * @return Curl
      * @throws \Exception
      */
     public function load($filePath)
     {
+        assert(isset($this->options['saas-server-address']));
+        assert(isset($this->options['account-id']));
+        assert(isset($this->options['report-id']));
+
         //upload file
         $curl = new Curl();
-        $curl->post(getenv('Angunasuktuq-saas-server-address') . "/data/$this->name/sync", array(
-            'data' => "@$filePath"
+        $curl->post($this->options['saas-server-address'] . "/{$this->options['account-id']}/data/{$this->options['report-id']}/sync", array(
+            'data' => "@$filePath",
         ));
 
         if ($curl->error) {
@@ -108,8 +103,12 @@ class Angunasuktuq
      */
     public function getSuspects()
     {
+        assert(isset($this->options['saas-server-address']));
+        assert(isset($this->options['account-id']));
+        assert(isset($this->options['report-id']));
+
         $curl = new Curl();
-        $curl->get(getenv('Angunasuktuq-saas-server-address') . "/data/$this->name/suspects", array(
+        $curl->get($this->options['saas-server-address'] . "/{$this->options['account-id']}/data/{$this->options['report-id']}/suspects", array(
             'mapping' => $this->mapping,
         ));
 

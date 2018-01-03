@@ -3,7 +3,7 @@
 
 # mission
 
-Angunasuktuq Client for Hunting Hackers by finding fingerprints in Logs.
+Angunasuktuq Client for Hunting Hackers by finding fingerprints in Logs and returns Hackers IP addresses.
 
 This service is base on white papers publish on blackhat.com; https://www.blackhat.com/docs/us-17/thursday/us-17-Prandl-PEIMA-Harnessing-Power-Laws-To-Detect-Malicious-Activities-From-Denial-Of-Service-To-Intrusion-Detection-Traffic-Analysis-And-Beyond-wp.pdf
 
@@ -20,64 +20,41 @@ composer require jeanguybillard/angunasuktuq-saas-client
 
 Here is how to configure the Saas service 
 
-- step 1: get security key
-And contact https://www.linkedin.com/in/jean-guy-billard-6186001/ for a security key 
-
-- step 2: Set the secret key and the server address in .env file
-``` sh
-cp .env.example {projectdirectory}/.env
-```
-``` sh
-vi {projectdirectory}/.env
-```
-
-``` ini
-Angunasuktuq-saas-server-address = "127.0.0.1"
-Angunasuktuq-security-key = "/ZeNeDRjYkWJ6A1HI8dM8A=="
-``` 
+Get AngunasukTuk' IP Server and API security key by contacting https://www.linkedin.com/in/jean-guy-billard-6186001/ and asking for a security key. 
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-# php sample code
+# php example
 
-used for identifying hackers ips address
+Here is an example for loading access log data and retrieve suspected hacker's ip addresses
 
 ``` php
 use Angunasuktuq\Angunasuktuq;
 
-$angunasuktuq = new Angunasuktuq($saasServer);
+$angunasuktuq = new Angunasuktuq([
+                                    "account-id" => "24b55f4d-6a60-43bc-a627-9a57acce210d",
+                                    "report-id" => "access-log-analysis",
+                                    "saas-server-address" => "127.0.0.1",
+                                    "saas-api-key" => "b5b6a39e-6253-4b08-a83a-6412-ae26360f"
+                                 ]);
 $angunasuktuq->load("/var/logs/access.log"); 
-var_dump($angunasuktuq->getSuspects());
-```
-
-or for identifying fraudsters accounts
-
-
-``` php
-use Angunasuktuq\Angunasuktuq;
-
-$angunasuktuq = new Angunasuktuq($saasServer);
-$angunasuktuq->load("/data/sales.csv"); 
 var_dump($angunasuktuq->getSuspects());
 ```
 
 # curl example
 
-
-``` sh
-curl --key '~/.ssh/id_rsa' --limit-rate 1M -i -X POST -H "Content-Type: multipart/form-data" 
--F "data=@/var/logs/access.log;userid=1234" http://{saas-server}/data/{analysis-name}/upload/
-
-curl --key '~/.ssh/id_rsa' --limit-rate 1M -X POST http://{saas-server}/data/{analysis-name}/suspects/
-
-```
-
-or 
+Here is the same example but with curl.
 
 
 ``` sh
-curl --key '~/.ssh/id_rsa' --limit-rate 1M -i -X POST -H "Content-Type: multipart/form-data" 
--F "data=@/data/sales.csv;userid=1234" http://{saas-server}/data/{analysis-name}/upload/
+curl --key '~/.ssh/id_rsa' --limit-rate 1M -i -X POST 
+-H "Content-Type: multipart/form-data"
+-H "Authorisation: b5b6a39e-6253-4b08-a83a-6412-ae26360f" 
+-F "data=@/var/logs/access.log;userid='24b55f4d-6a60-43bc-a627-9a57acce210d';" 
+https://127.0.0.1/24b55f4d-6a60-43bc-a627-9a57acce210d/data/access-log-analysis/upload/
 
-curl --key '~/.ssh/id_rsa' --limit-rate 1M -X POST http://{saas-server}/data/{analysis-name}/suspects/
+curl --key '~/.ssh/id_rsa' --limit-rate 1M -X POST 
+-F "userid='24b55f4d-6a60-43bc-a627-9a57acce210d'"
+http://127.0.0.1/data/access-log-analysis/suspects/
 
 ```
+
