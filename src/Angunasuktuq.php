@@ -14,7 +14,9 @@ class Angunasuktuq
     /** @var array $options */
     private $options = [
         'saas-server-address' => null,
+        'saas-api-key' => null,
         'account-id' => null,
+        'account-name' => null,
         'report-id' => 'default',
     ];
 
@@ -78,13 +80,18 @@ class Angunasuktuq
     public function load($filePath)
     {
         assert(isset($this->options['saas-server-address']));
+        assert(isset($this->options['saas-api-key']));
         assert(isset($this->options['account-id']));
-        assert(isset($this->options['report-id']));
+        assert(isset($this->options['account-name']));
+        assert(isset($this->options['report-name']));
 
         //upload file
         $curl = new Curl();
-        $curl->post($this->options['saas-server-address'] . "/{$this->options['account-id']}/data/{$this->options['report-id']}/sync", array(
+        $curl->setHeader('Content-Type','multipart/form-data');
+        $curl->setHeader('Authorization', "Bearer " . $this->options['saas-api-key']);
+        $curl->post($this->options['saas-server-address'] . "/{$this->options['account-name']}/data/{$this->options['report-name']}/sync", array(
             'data' => "@$filePath",
+            'account-id' => $this->options['account-id']
         ));
 
         if ($curl->error) {
@@ -104,12 +111,17 @@ class Angunasuktuq
     public function getSuspects()
     {
         assert(isset($this->options['saas-server-address']));
+        assert(isset($this->options['saas-api-key']));
         assert(isset($this->options['account-id']));
-        assert(isset($this->options['report-id']));
+        assert(isset($this->options['account-name']));
+        assert(isset($this->options['report-name']));
 
         $curl = new Curl();
-        $curl->get($this->options['saas-server-address'] . "/{$this->options['account-id']}/data/{$this->options['report-id']}/suspects", array(
+        $curl->setHeader('Content-Type','multipart/form-data');
+        $curl->setHeader('Authorization', "Bearer " . $this->options['saas-api-key']);
+        $curl->get($this->options['saas-server-address'] . "/{$this->options['account-name']}/data/{$this->options['report-name']}/suspects", array(
             'mapping' => $this->mapping,
+            'account-id' => $this->options['account-id']
         ));
 
         if ($curl->error) {
