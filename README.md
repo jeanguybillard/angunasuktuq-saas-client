@@ -5,10 +5,9 @@
 
 Angunasuktuq Client for Hunting Hackers by finding their fingerprints in Logs.
 
-With this client you will be able to identify anomalies in your sales transactions and find ip addresses responsible for DDoS attacks.  
+This client detects servers responsible for the DDOS. Also you will be able to identify anomalies in your sales transactions and find ip addresses responsible for DDoS attacks.  
 
 # installation
-
 
 ``` sh
 composer require jeanguybillard/angunasuktuq-saas-client
