@@ -3,9 +3,7 @@
 
 # mission
 
-Angunasuktuq Client for Hunting Hackers by finding fingerprints in Logs and returns Hackers IP addresses.
-
-This service is base on white papers publish on blackhat.com; https://www.blackhat.com/docs/us-17/thursday/us-17-Prandl-PEIMA-Harnessing-Power-Laws-To-Detect-Malicious-Activities-From-Denial-Of-Service-To-Intrusion-Detection-Traffic-Analysis-And-Beyond-wp.pdf
+Angunasuktuq Client for Hunting Hackers by finding their fingerprints in Logs.
 
 With this client you will be able to identify anomalies in your sales transactions and find ip addresses responsible for DDoS attacks.  
 
@@ -59,3 +57,8 @@ http://127.0.0.1/redtube.com/data/access-log-analysis/suspects/
 
 ```
 
+# reference 
+
+This service is base on white papers publish on blackhat.com; https://www.blackhat.com/docs/us-17/thursday/us-17-Prandl-PEIMA-Harnessing-Power-Laws-To-Detect-Malicious-Activities-From-Denial-Of-Service-To-Intrusion-Detection-Traffic-Analysis-And-Beyond-wp.pdf
+
+Also, This sercie use advance mathematical calculation for detecting fraud as defined by the Association Certified Fraud Examiner http://www.acfe.com/Benfords/ 
