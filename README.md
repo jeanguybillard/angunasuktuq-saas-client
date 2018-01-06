@@ -1,11 +1,11 @@
 
 # angunasuktuq-saas-client
 
+This library made by Hacking Experts Community detects servers responsible for the DDOS Attacks. It works by uploading sample data to Angunasuktuq-Server where complexe calculation and analysis is performed; the result will be a list of potentials culporate ip addresses, that should be blacklisted.
+
 # mission
 
-Angunasuktuq Client for Hunting Hackers by finding their fingerprints in Logs.
-
-This client detects servers responsible for the DDOS. Also you will be able to identify anomalies in your sales transactions and find ip addresses responsible for DDoS attacks.  
+Corporation recognize that DDoS attacks can be costly. Angunasuktuq-Client library Hunts Hackers by finding their fingerprints in your server access logs.
 
 # installation
 
