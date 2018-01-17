@@ -5,7 +5,9 @@ This library made by Hacking Experts Community detects servers responsible for t
 
 # mission
 
-Corporation recognize that DDoS attacks can be costly. Angunasuktuq-Client library Hunts Hackers by finding their fingerprints in your server access logs.
+Corporation recognize that DDoS attacks can be costly. THe story of bitconnect is the perfect example on how important it is to protect against DDoS. https://bitconnect.co/system-news/94/changes-coming-for-the-bitconnect-system-halt-of-lending-and-exchange-platform
+
+Angunasuktuq-Client library Hunts in realtime Hackers by finding their fingerprints in your server access logs, and blocking them before they bring the site down. 
 
 # installation
 
