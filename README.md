@@ -31,7 +31,7 @@ use Angunasuktuq;
 
 $angunasuktuq = new Angunasuktuq([
                                  "account-id" => "24b55f4d-6a60-43bc-a627-9a57acce210d",
-                                 "account-name" => "redtube.com",
+                                 "account-name" => "bitconnect.co",
                                  "report-name" => "access-log-analysis",
                                  "saas-server-address" => "127.0.0.1",
                                  "saas-api-key" => "b5b6a39e-6253-4b08-a83a-6412-ae26360f"
@@ -49,12 +49,12 @@ curl --key '~/.ssh/id_rsa' --limit-rate 1M -i -X POST
 -H "Content-Type: multipart/form-data"
 -H "Authorisation: Bearer b5b6a39e-6253-4b08-a83a-6412-ae26360f" 
 -F "data=@/var/logs/access.log;account-id='24b55f4d-6a60-43bc-a627-9a57acce210d';" 
-https://127.0.0.1/redtube.com/data/access-log-analysis/upload/
+https://127.0.0.1/bitconnect.co/data/access-log-analysis/upload/
 
 curl --key '~/.ssh/id_rsa' --limit-rate 1M -X POST 
 -H "Authorisation: Bearer b5b6a39e-6253-4b08-a83a-6412-ae26360f" 
 -F "account-id='24b55f4d-6a60-43bc-a627-9a57acce210d'"
-http://127.0.0.1/redtube.com/data/access-log-analysis/suspects/
+http://127.0.0.1/bitconnect.co/data/access-log-analysis/suspects/
 
 ```
 
